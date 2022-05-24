@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/688aba1658.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" href="./styles/hp.css">
+    <link rel="stylesheet" href="./styles/media.css">
+    <link rel="stylesheet" href="./styles/atributos.css">
+    <link rel="stylesheet" href="./styles/buttons.css">
+    <link rel="stylesheet" href="./styles/modal.css">
+    <title>Combate</title>
+</head>
+
+
+
+<body id="body">
+    <div class="container">
+        <div class="toggle">
+            <input type="checkbox" id="switch" name="theme">
+            <label for="switch">Toggle</label>
+        </div>
+    </div>
+
+    <!--Modal do Perfil-->
+
+    <button id="perfil-button">Perfil</button>
+
+    <div id="modal-perfil" class="modal-perfil-container">
+        <div id="perfil" class="perfil-jogador">
+            <button class="fechar">X</button>
+            <h1>Perfil</h1>
+            <div class="foto-perfil">
+                <img class="imagem-perfil" src="../img/lanceira-rosto.png">
+            </div>
+            <div class="nome-jogador">
+                <h1 class="nome-personagem">Jubiscleudo</h1>
+            </div>
+            <div class="progresso-jogador">
+                <h2>Progresso:</h2>
+            </div>
+            <div class="bosses-derrotados">
+                <h2>Quantidade de chefões derrotados:</h2>
+            </div>
+        </div>
+    </div>
+
+    <!--Modal do Inventário-->
+
+    <button id="inventario-button">Inventario</button>
+    
+    <div id="modal-inventario" class="modal-inventario-container">
+        <div id="inventario" class="inventario-jogador">
+            <button class="fechar">X</button>
+            <h1>Inventário</h1>
+
+            <div class="container-imagens">
+                <div class="item1">
+                    <img class="imagem1" src="../img/esmeralda-verde.png">
+                    <p class="descricao-item1">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vitae ante lectus. Suspendisse </p>
+                </div>
+                <div class="item2">
+                    <img class="imagem2" src="../img/esmeralda-amarela.png">
+                    <p class="descricao-item2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vitae ante lectus. Suspendisse potenti. Maecenas nec augue consequat, volutpat lorem ac, pretium </p>
+                </div>
+                
+                <div class="item3">
+                    <img class="imagem3" src="../img/esmeralda-vermelha.png">
+                    <p class="descricao-item3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vitae ante lectus. Suspendisse potenti. Maecenas nec augue consequat, volutpat lorem ac, pretium </p>
+                </div>
+                <div class="item4">
+                    <img class="imagem4" src="../img/machado.png">
+                    <p class="descricao-item4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vitae ante lectus. Suspendisse potenti. Maecenas nec augue consequat, volutpat lorem ac, pretium </p>
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+
+    <div id="container">
+        
+    </div>
+
+
+    <form>
+        <input type="range" min="0" max="10" value="10" id="range" onclick="atacar()">
+    </form>
+
+
+
+</body>
+<script src="./scripts/combate.js"></script>
+<script src="./scripts/dark-mode.js"></script>
+<script src="./scripts/animation-type.js"></script>
+<script src="./scripts/interface.js"></script>
+
+<script>
+    function iniciaModal(modalId) {
+        const modal = document.getElementById(modalId)
+        if (modal) {
+            modal.classList.add('mostrar')
+            modal.addEventListener('click', (e) => {
+                if (e.target.id == modalId || e.target.className == 'fechar') {
+                    modal.classList.remove('mostrar')
+                }
+            })
+        }
+
+    }
+
+
+    const abrirModalPerfil = document.getElementById('perfil-button')
+    abrirModalPerfil.addEventListener('click', () => iniciaModal('modal-perfil'));
+
+    const abrirModalInventario = document.getElementById('inventario-button')
+    abrirModalInventario.addEventListener('click', () => iniciaModal('modal-inventario'))
+</script>
+
+
+
+</html>
